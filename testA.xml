@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csg.bgdoms.project.projectmanage.projectqualityplan.model">
+
+<generateOperate class="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO"></generateOperate>
+
+<!-- 原始 XML -->
+<select id="findUser">
+    SELECT good FROM user
+    <if test="name != null">
+        WHERE name = #{name}
+    </if>
+    <if test="age != null">
+        AND age = #{age}
+    </if>
+</select>
+<select id="getUser">
+    SELECT * FROM user
+    <if test="name != null">
+        WHERE name = #{name}
+    </if>
+    <if test="age != null">
+        AND age = #{age}
+    </if>
+</select>
+
+  <select id="atmCost_queryProjectTestingAndResearchCost" parameterType="java.util.Map" resultType="com.csg.bgdoms.project.projectmanage.projectapply.model.TopCloudProjectVO">
+        with tab_1 as (select t1.PROJECT_ID,
+                      nvl(sum(case
+                                  when t1.WORK_ITEM = '品控测试费（功能、性能测试）' or t1.WORK_ITEM = '品控测试费（安全测试）' then t1.AMOUNT
+                                  else 0.00 end), 0.00) as TESTING_COST,
+                      nvl(sum(case
+                                  when t1.WORK_ITEM = '其中：界面开发与视觉设计费' then t1.AMOUNT
+                                  else 0.00 end), 0.00) as RESEARCH_COST
+               from ${tableName} t1
+               where t1.IS_DELETED = 2
+	and t1.ggodd=2
+                 and t1.PROJECT_ID in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+               group by t1.PROJECT_ID),
+     tab_2 as (select t2.ID       projectId,
+                      ROUND((NVL(t2.SUBCONTRACT_COST, 0.00) + NVL(t2.GPERSON_IN_COST, 0.00) +
+                             NVL(t2.GPERSON_COST, 0.00) +
+                             NVL(t2.ENTRUST_COST, 0.00)),
+                            2) as constructCost
+               from DM_PM_PROJ_FEE_STATISTICS t2
+               where t2.IS_DELETED = 2
+                 and t2.ID in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>),
+     tab_3 as (select t3.ID, t3.PROJECT_APPROVAL_FROM, t3.PROJECT_COST_CLASS, t3.BUSINESS_SEGMENTS, t3.PROJECT_TYPE
+               from dm_pm_project t3
+               where t3.IS_DELETED = 2
+                 and t3.ID in
+        <foreach collection="list" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>),
+     tab_4 as (select tab_1.PROJECT_ID                                                           projectId,
+                      case
+                          when tab_3.BUSINESS_SEGMENTS = 1 and (tab_3.PROJECT_APPROVAL_FROM != 1 or
+                                                                (tab_3.PROJECT_APPROVAL_FROM = 1 and tab_3.PROJECT_COST_CLASS != 1))
+                              then TO_CHAR(tab_1.TESTING_COST, 'FM999999999999999999990.00')
+                          when tab_3.BUSINESS_SEGMENTS = 2 and tab_3.PROJECT_TYPE = 6
+                              then TO_CHAR(tab_1.TESTING_COST, 'FM999999999999999999990.00')
+                          else '/' end                                                        as testingCost,
+                      case
+                          when tab_3.BUSINESS_SEGMENTS = 1 and (tab_3.PROJECT_APPROVAL_FROM != 1 or
+                                                                (tab_3.PROJECT_APPROVAL_FROM = 1 and tab_3.PROJECT_COST_CLASS != 1))
+                              then TO_CHAR(tab_1.RESEARCH_COST, 'FM999999999999999999990.00')
+                          else TO_CHAR(tab_2.constructCost, 'FM999999999999999999990.00') end as researchCost
+               from tab_1
+                        left join tab_2 on tab_2.projectId = tab_1.PROJECT_ID
+                        left join tab_3 on tab_3.ID = tab_1.PROJECT_ID)
+select *
+from tab_4
+    </select>
+
+    <select id="atmCostVO_queryProjectIdListByIdList" parameterType="com.csg.bgdoms.project.projectmanage.projectapply.model.ProjectVO" resultType="com.csg.bgdoms.project.projectmanage.projectapply.model.AtmCostVO">
+        SELECT *  from FI_OT_ATM_COST WHERE 1=1 AND project_id in
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            #{item.projectId}
+        </foreach>
+    </select>
+
+    <select id="atmCostVO_queryProjectExtVOByProjectId" parameterType="java.lang.String" resultType="com.csg.bgdoms.project.projectmanage.projectapply.model.ProjectExtVO">
+        SELECT *  from DM_pm_project_ext  WHERE ID = #{id}
+    </select>
+
+    <select id="atmCost_queryAttmentIdListByObjId" resultType="java.lang.String" parameterType="java.lang.String">
+        select   T1.ATTACHMENT_ID  from TOP_ATTACHMENT T1 INNER JOIN TOP_ATTACHMENT_OBJECT_RELATION T2 ON T1.ATTACHMENT_ID = T2.ATTACHMENT_ID
+        WHERE T2.OBJECT_ID =  #{objectId} AND T1.JOB_TYPE_CODE = 'FJ_CBGSB' AND T2.STATE = 1
+    </select>
+
+    <select id="atmCost_queryUniqueCode222" resultType="java.lang.String" parameterType="java.lang.String">
+        select UNIQUE_CODE from TOP_ATTACHMENT where  STATE = 2 AND ATTACHMENT_ID = #{attachmentId}
+    </select>
+
+    <select id="atmCost_queryProjectVerIdByProjectId" resultType="java.lang.String" parameterType="java.lang.String">
+        SELECT t.after_ver_id FROM (
+        SELECT  t.after_ver_id ,row_number()
+        over (partition by t.project_ID order by t.CREATE_TIME,t.goods  desc) dis from dm_pm_project_change t,dm_pm_contract m where t.project_id  =  #{projectId} AND t.IS_DELETED = 2
+        ) WHERE DIS = 1
+    </select>
+    
+</mapper>
