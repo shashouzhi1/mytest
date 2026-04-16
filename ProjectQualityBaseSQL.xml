@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csg.bgdoms.project.projectmanage.projectqualityplan.model">
+
+<generateOperate class="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO"></generateOperate>
+
+<sql id = "projectQuality_cascade_query_condition" >
+    <if test = "id != null and id != '' "> 
+        AND (T1.ID = #{id})  
+    </if>        
+    <if test = "projectId != null and projectId != '' "> 
+        AND (T1.PROJECT_ID = #{projectId})  
+    </if>        
+    <if test = "pmArrivalTime != null"> 
+        AND (T1.PM_ARRIVAL_TIME = #{pmArrivalTime})  
+    </if>        
+    <if test = "dmId != null and dmId != '' "> 
+        AND (T1.DM_ID = #{dmId})  
+    </if>        
+    <if test = "dmName != null and dmName != '' "> 
+        AND (T1.DM_NAME = #{dmName})  
+    </if>        
+    <if test = "dmArrivalTime != null"> 
+        AND (T1.DM_ARRIVAL_TIME = #{dmArrivalTime})  
+    </if>        
+    <if test = "qaId != null and qaId != '' "> 
+        AND (T1.QA_ID = #{qaId})  
+    </if>        
+    <if test = "qaName != null and qaName != '' "> 
+        AND (T1.QA_NAME = #{qaName})  
+    </if>        
+    <if test = "qaArrivalTime != null"> 
+        AND (T1.QA_ARRIVAL_TIME = #{qaArrivalTime})  
+    </if>        
+    <if test = "projectQualityId != null and projectQualityId != '' "> 
+        AND (T1.PROJECT_QUALITY_ID = #{projectQualityId})  
+    </if>        
+    <if test = "projectQualityName != null and projectQualityName != '' "> 
+        AND (T1.PROJECT_QUALITY_NAME = #{projectQualityName})  
+    </if>        
+    <if test = "projectQualityArrivalTime != null"> 
+        AND (T1.PROJECT_QUALITY_ARRIVAL_TIME = #{projectQualityArrivalTime})  
+    </if>        
+    <if test = "phase != null"> 
+        AND (T1.PHASE = #{phase})  
+    </if>        
+    <if test = "isDeleted != null"> 
+        AND (T1.IS_DELETED = #{isDeleted})  
+    </if>        
+    <if test = "creatorId != null and creatorId != '' "> 
+        AND (T1.CREATOR_ID = #{creatorId})  
+    </if>        
+    <if test = "creator != null and creator != '' "> 
+        AND (T1.CREATOR = #{creator})  
+    </if>        
+    <if test = "createTime != null"> 
+        AND (T1.CREATE_TIME = #{createTime})  
+    </if>        
+    <if test = "updateId != null and updateId != '' "> 
+        AND (T1.UPDATE_ID = #{updateId})  
+    </if>        
+    <if test = "updateName != null and updateName != '' "> 
+        AND (T1.UPDATE_NAME = #{updateName})  
+    </if>        
+    <if test = "updateTime != null"> 
+        AND (T1.UPDATE_TIME = #{updateTime})  
+    </if>        
+    <if test = "dataFrom != null and dataFrom != '' "> 
+        AND (T1.DATA_FROM = #{dataFrom})  
+    </if>        
+    <if test = "provinceCode != null and provinceCode != '' "> 
+        AND (T1.PROVINCE_CODE = #{provinceCode})  
+    </if>        
+    <if test = "bureauCode != null and bureauCode != '' "> 
+        AND (T1.BUREAU_CODE = #{bureauCode})  
+    </if>        
+    <if test = "optimisticLockVersion != null"> 
+        AND (T1.OPTIMISTIC_LOCK_VERSION = #{optimisticLockVersion})  
+    </if>        
+    <if test = "pmId != null and pmId != '' "> 
+        AND (T1.PM_ID = #{pmId})  
+    </if>        
+    <if test = "pmName != null and pmName != '' "> 
+        AND (T1.PM_NAME = #{pmName})  
+    </if>        
+    <if test = "qualityStatus != null"> 
+        AND (T1.QUALITY_STATUS = #{qualityStatus})  
+    </if>        
+    <if test = "issuedType != null"> 
+        AND (T1.ISSUED_TYPE = #{issuedType})  
+    </if>        
+    <if test = "processInsId != null and processInsId != '' "> 
+        AND (T1.PROCESS_INS_ID = #{processInsId})  
+    </if>        
+    <if test = "flowState != null"> 
+        AND (T1.FLOW_STATE = #{flowState})  
+    </if>        
+</sql>
+
+<sql id = "projectQuality_update_filed_condition" >
+    <if test = "projectId != null and projectId != '' "> 
+        T1.PROJECT_ID = #{projectId},   
+    </if>
+    <if test = "pmArrivalTime != null"> 
+        T1.PM_ARRIVAL_TIME = #{pmArrivalTime},   
+    </if>
+    <if test = "dmId != null and dmId != '' "> 
+        T1.DM_ID = #{dmId},   
+    </if>
+    <if test = "dmName != null and dmName != '' "> 
+        T1.DM_NAME = #{dmName},   
+    </if>
+    <if test = "dmArrivalTime != null"> 
+        T1.DM_ARRIVAL_TIME = #{dmArrivalTime},   
+    </if>
+    <if test = "qaId != null and qaId != '' "> 
+        T1.QA_ID = #{qaId},   
+    </if>
+    <if test = "qaName != null and qaName != '' "> 
+        T1.QA_NAME = #{qaName},   
+    </if>
+    <if test = "qaArrivalTime != null"> 
+        T1.QA_ARRIVAL_TIME = #{qaArrivalTime},   
+    </if>
+    <if test = "projectQualityId != null and projectQualityId != '' "> 
+        T1.PROJECT_QUALITY_ID = #{projectQualityId},   
+    </if>
+    <if test = "projectQualityName != null and projectQualityName != '' "> 
+        T1.PROJECT_QUALITY_NAME = #{projectQualityName},   
+    </if>
+    <if test = "projectQualityArrivalTime != null"> 
+        T1.PROJECT_QUALITY_ARRIVAL_TIME = #{projectQualityArrivalTime},   
+    </if>
+    <if test = "phase != null"> 
+        T1.PHASE = #{phase},   
+    </if>
+    <if test = "isDeleted != null"> 
+        T1.IS_DELETED = #{isDeleted},   
+    </if>
+    <if test = "creatorId != null and creatorId != '' "> 
+        T1.CREATOR_ID = #{creatorId},   
+    </if>
+    <if test = "creator != null and creator != '' "> 
+        T1.CREATOR = #{creator},   
+    </if>
+    <if test = "createTime != null"> 
+        T1.CREATE_TIME = #{createTime},   
+    </if>
+    <if test = "updateId != null and updateId != '' "> 
+        T1.UPDATE_ID = #{updateId},   
+    </if>
+    <if test = "updateName != null and updateName != '' "> 
+        T1.UPDATE_NAME = #{updateName},   
+    </if>
+    <if test = "updateTime != null"> 
+        T1.UPDATE_TIME = #{updateTime},   
+    </if>
+    <if test = "dataFrom != null and dataFrom != '' "> 
+        T1.DATA_FROM = #{dataFrom},   
+    </if>
+    <if test = "provinceCode != null and provinceCode != '' "> 
+        T1.PROVINCE_CODE = #{provinceCode},   
+    </if>
+    <if test = "bureauCode != null and bureauCode != '' "> 
+        T1.BUREAU_CODE = #{bureauCode},   
+    </if>
+    <if test = "optimisticLockVersion != null"> 
+        T1.OPTIMISTIC_LOCK_VERSION = #{optimisticLockVersion},   
+    </if>
+    <if test = "pmId != null and pmId != '' "> 
+        T1.PM_ID = #{pmId},   
+    </if>
+    <if test = "pmName != null and pmName != '' "> 
+        T1.PM_NAME = #{pmName},   
+    </if>
+    <if test = "qualityStatus != null"> 
+        T1.QUALITY_STATUS = #{qualityStatus},   
+    </if>
+    <if test = "issuedType != null"> 
+        T1.ISSUED_TYPE = #{issuedType},   
+    </if>
+    <if test = "processInsId != null and processInsId != '' "> 
+        T1.PROCESS_INS_ID = #{processInsId},   
+    </if>
+    <if test = "flowState != null"> 
+        T1.FLOW_STATE = #{flowState},   
+    </if>
+</sql>
+
+<select id="queryTodoProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+   SELECT T1.*,
+          '项目类型' as showSecondLable,
+          '项目部门' as showThirdLable,
+		  T2.TODO_TASK_ID AS taskId ,
+          T2.CUR_NODE_ID as nodeId,
+          T2.CUR_NODE_NAME as nodeName,
+          T2.BACK_FLAG as backFlag,
+          T2.READ_FLAG as readFlag,
+          T2.MAIN_PROCESS_ID as processId,
+          T2.NOTE as opinion,
+          T2.VERSION as version,
+          T3.PROJECT_NAME as projectName,
+          T3.PROJECT_CODE as projectCode,
+          T3.PROJECT_DEPT as projectDept,
+          T3.PROJECT_TYPE_CODE as projectTypeCode,
+          T3.PROJECT_TYPE as projectType,
+          T3.PROJECT_CHARGER AS pmName,
+          T3.PROJECT_NAME as showFirst,
+          T3.PROJECT_DEPT as showThird,
+          (CASE WHEN T1.ISSUED_TYPE = 1 THEN 
+           (CASE WHEN T3.PROJECT_TYPE = 1 THEN '开发类'
+          	     WHEN T3.PROJECT_TYPE = 2 THEN '实施类'
+                 WHEN T3.PROJECT_TYPE = 3 THEN '产品销售类'
+                 WHEN T3.PROJECT_TYPE = 4 THEN '运维类'
+                 WHEN T3.PROJECT_TYPE = 5 THEN '技术服务类'
+                 WHEN T3.PROJECT_TYPE = 6 THEN '资源与租赁类'
+          	     WHEN T3.PROJECT_TYPE = 7 THEN '研究与咨询类'
+                 WHEN T3.PROJECT_TYPE = 8 THEN '工程类'
+                 WHEN T3.PROJECT_TYPE = 9 THEN '科技创新类'
+           END)  
+              WHEN T1.ISSUED_TYPE = 2 THEN 
+           		(CASE  WHEN T3.PROJECT_TYPE = 1 THEN '前期研究类'
+          	    	   WHEN T3.PROJECT_TYPE = 2 THEN '信息系统开发类'
+                	   WHEN T3.PROJECT_TYPE = 3 THEN '共享资源设施购置类'
+                       WHEN T3.PROJECT_TYPE = 4 THEN '信息系统维护类'
+                       WHEN T3.PROJECT_TYPE = 5 THEN '数据及集成服务类'
+                       WHEN T3.PROJECT_TYPE = 6 THEN '技术创新平台类'
+          	           WHEN T3.PROJECT_TYPE = 7 THEN '技术研究类'
+                       WHEN T3.PROJECT_TYPE = 8 THEN '管理创新类'
+                       WHEN T3.PROJECT_TYPE = 9 THEN '技术咨询服务类'
+                 	   WHEN T3.PROJECT_TYPE = 10 THEN '产品开发类'
+                       WHEN T3.PROJECT_TYPE = 11 THEN '开发类'
+                 END)   
+              WHEN T1.ISSUED_TYPE =3 THEN 
+           		(CASE  WHEN T3.PROJECT_TYPE = 1 THEN '开发类'
+          	    	   WHEN T3.PROJECT_TYPE = 2 THEN '实施类'
+                	   WHEN T3.PROJECT_TYPE = 3 THEN '产品销售类'
+                       WHEN T3.PROJECT_TYPE = 4 THEN '运维类'
+                       WHEN T3.PROJECT_TYPE = 5 THEN '技术服务类'
+                       WHEN T3.PROJECT_TYPE = 6 THEN '资源与租赁类'
+          	           WHEN T3.PROJECT_TYPE = 7 THEN '研究与咨询类'
+                       WHEN T3.PROJECT_TYPE = 8 THEN '工程类'
+                       WHEN T3.PROJECT_TYPE = 9 THEN '科技创新类'
+                 END)   END)                            AS showSecond,
+           T2.CREATE_TIME AS sortTime, 
+           CEIL(SYSDATE -CAST(T2.CREATE_TIME AS DATE)) AS stayTime
+     FROM DM_PM_PROJECT_QUALITY T1, ${transTableName} T2, DM_PM_PROJECT T3
+    WHERE T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+      AND T1.FLOW_STATE = 1
+       AND T1.PROJECT_ID = T3.ID(+)
+      AND T2.TRANS_ACTOR_ID = #{transActor}
+      AND T2.MAIN_PROCESS_ID = #{processId}
+     <if test="searchKeyNew != null and searchKeyNew != ''">
+       AND T3.PROJECT_NAME like '%' || #{searchKeyNew}|| '%'
+     </if>
+     <if test="queryName != null and queryName != ''">
+       AND (T3.PROJECT_NAME like '%' || #{queryName}|| '%' or T3.PROJECT_CODE like '%' || #{queryName} ||'%')
+     </if>
+     <if test="nodeId != null and nodeId != ''">
+       AND T2.CUR_NODE_ID = #{nodeId}	
+     </if>
+   <if test = "stayTime == 0 ">
+        AND T2.CREATE_TIME <![CDATA[>=]]> (sysdate - 1)
+    </if>
+      <if test = "stayTime == 1 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 1)
+    </if>
+    <if test = "stayTime == 3 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 3)
+    </if>
+       <if test = "stayTime == 7 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 7)
+    </if>
+   <include refid="projectQuality_default_query_condition" />
+   <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+    <if test="sortFieldName == null or  sortFieldName == '' ">
+       ORDER BY T2.CREATE_TIME DESC
+   </if>     
+</select>
+
+<select id="queryTodoProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+SELECT COUNT(1) FROM 
+ (   SELECT T1.*,
+          '项目类型' as showSecondLable,
+          '项目部门' as showThirdLable,
+		  T2.TODO_TASK_ID AS taskId ,
+          T2.CUR_NODE_ID as nodeId,
+          T2.CUR_NODE_NAME as nodeName,
+          T2.BACK_FLAG as backFlag,
+          T2.READ_FLAG as readFlag,
+          T2.MAIN_PROCESS_ID as processId,
+          T2.NOTE as opinion,
+          T2.VERSION as version,
+          T3.PROJECT_NAME as projectName,
+          T3.PROJECT_CODE as projectCode,
+          T3.PROJECT_DEPT as projectDept,
+          T3.PROJECT_TYPE_CODE as projectTypeCode,
+          T3.PROJECT_TYPE as projectType,
+          T3.PROJECT_CHARGER AS pmName,
+          T3.PROJECT_NAME as showFirst,
+          T3.PROJECT_DEPT as showThird,
+          (CASE WHEN T1.ISSUED_TYPE = 1 THEN 
+           (CASE WHEN T3.PROJECT_TYPE = 1 THEN '开发类'
+          	     WHEN T3.PROJECT_TYPE = 2 THEN '实施类'
+                 WHEN T3.PROJECT_TYPE = 3 THEN '产品销售类'
+                 WHEN T3.PROJECT_TYPE = 4 THEN '运维类'
+                 WHEN T3.PROJECT_TYPE = 5 THEN '技术服务类'
+                 WHEN T3.PROJECT_TYPE = 6 THEN '资源与租赁类'
+          	     WHEN T3.PROJECT_TYPE = 7 THEN '研究与咨询类'
+                 WHEN T3.PROJECT_TYPE = 8 THEN '工程类'
+                 WHEN T3.PROJECT_TYPE = 9 THEN '科技创新类'
+           END)  
+              WHEN T1.ISSUED_TYPE = 2 THEN 
+           		(CASE  WHEN T3.PROJECT_TYPE = 1 THEN '前期研究类'
+          	    	   WHEN T3.PROJECT_TYPE = 2 THEN '信息系统开发类'
+                	   WHEN T3.PROJECT_TYPE = 3 THEN '共享资源设施购置类'
+                       WHEN T3.PROJECT_TYPE = 4 THEN '信息系统维护类'
+                       WHEN T3.PROJECT_TYPE = 5 THEN '数据及集成服务类'
+                       WHEN T3.PROJECT_TYPE = 6 THEN '技术创新平台类'
+          	           WHEN T3.PROJECT_TYPE = 7 THEN '技术研究类'
+                       WHEN T3.PROJECT_TYPE = 8 THEN '管理创新类'
+                       WHEN T3.PROJECT_TYPE = 9 THEN '技术咨询服务类'
+                 	   WHEN T3.PROJECT_TYPE = 10 THEN '产品开发类'
+                       WHEN T3.PROJECT_TYPE = 11 THEN '开发类'
+                 END)   
+              WHEN T1.ISSUED_TYPE =3 THEN 
+           		(CASE  WHEN T3.PROJECT_TYPE = 1 THEN '开发类'
+          	    	   WHEN T3.PROJECT_TYPE = 2 THEN '实施类'
+                	   WHEN T3.PROJECT_TYPE = 3 THEN '产品销售类'
+                       WHEN T3.PROJECT_TYPE = 4 THEN '运维类'
+                       WHEN T3.PROJECT_TYPE = 5 THEN '技术服务类'
+                       WHEN T3.PROJECT_TYPE = 6 THEN '资源与租赁类'
+          	           WHEN T3.PROJECT_TYPE = 7 THEN '研究与咨询类'
+                       WHEN T3.PROJECT_TYPE = 8 THEN '工程类'
+                       WHEN T3.PROJECT_TYPE = 9 THEN '科技创新类'
+                 END)   END)                            AS showSecond,
+           T2.CREATE_TIME AS sortTime, 
+           CEIL(SYSDATE -CAST(T2.CREATE_TIME AS DATE)) AS stayTime
+     FROM DM_PM_PROJECT_QUALITY T1, ${transTableName} T2, DM_PM_PROJECT T3
+    WHERE T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+      AND T1.FLOW_STATE = 1
+       AND T1.PROJECT_ID = T3.ID(+)
+      AND T2.TRANS_ACTOR_ID = #{transActor}
+      AND T2.MAIN_PROCESS_ID = #{processId}
+     <if test="searchKeyNew != null and searchKeyNew != ''">
+       AND T3.PROJECT_NAME like '%' || #{searchKeyNew}|| '%'
+     </if>
+     <if test="queryName != null and queryName != ''">
+       AND (T3.PROJECT_NAME like '%' || #{queryName}|| '%' or T3.PROJECT_CODE like '%' || #{queryName} ||'%')
+     </if>
+     <if test="nodeId != null and nodeId != ''">
+       AND T2.CUR_NODE_ID = #{nodeId}	
+     </if>
+   <if test = "stayTime == 0 ">
+        AND T2.CREATE_TIME <![CDATA[>=]]> (sysdate - 1)
+    </if>
+      <if test = "stayTime == 1 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 1)
+    </if>
+    <if test = "stayTime == 3 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 3)
+    </if>
+       <if test = "stayTime == 7 ">
+        AND T2.CREATE_TIME <![CDATA[<]]> (sysdate - 7)
+    </if>
+   <include refid="projectQuality_default_query_condition" />) t
+</select>
+
+<select id="queryDoneProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version,
+       	   T3.PROJECT_NAME as projectName,
+           T3.PROJECT_CODE as projectCode,
+           T3.PROJECT_DEPT as projectDept,
+           T3.PROJECT_TYPE_CODE as projectTypeCode,
+           T3.PROJECT_TYPE as projectType,
+           T3.PROJECT_CHARGER AS pmName
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 ) T2, DM_PM_PROJECT T3
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+     AND T1.PROJECT_ID = T3.ID(+)
+    <if test="nodeId != null and nodeId != ''">
+       AND T2.CUR_NODE_ID = #{nodeId}	
+    </if> 
+	<include refid="projectQuality_default_query_condition" />
+   <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>	
+</select>
+
+<select id="queryDoneProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+SELECT COUNT(1) FROM 
+ (SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version,
+       	   T3.PROJECT_NAME as projectName,
+           T3.PROJECT_CODE as projectCode,
+           T3.PROJECT_DEPT as projectDept,
+           T3.PROJECT_TYPE_CODE as projectTypeCode,
+           T3.PROJECT_TYPE as projectType,
+           T3.PROJECT_CHARGER AS pmName
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 ) T2, DM_PM_PROJECT T3
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+     AND T1.PROJECT_ID = T3.ID(+)
+    <if test="nodeId != null and nodeId != ''">
+       AND T2.CUR_NODE_ID = #{nodeId}	
+    </if> 
+	<include refid="projectQuality_default_query_condition" />) t
+</select>
+
+<select id="queryToEntryProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+  SELECT COUNT(1) 
+    FROM (SELECT BT.*,
+                 T2.TODO_TASK_ID taskId,
+                 NVL(T2.MAIN_PROCESS_ID, #{processId}) AS processId,
+                 T2.CUR_NODE_ID as nodeId,
+                 T2.CUR_NODE_NAME as nodeName,
+                 T2.BACK_FLAG as backFlag
+            FROM DM_PM_PROJECT_QUALITY BT LEFT JOIN
+                 (select * from ${transTableName} T3 where T3.TRANS_ACTOR_ID = #{transActor}) T2
+            ON BT.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+             WHERE (BT.FLOW_STATE = 0 OR BT.FLOW_STATE IS NULL)) T1 
+   WHERE (T1.processId = #{processId} OR T1.processId IS NULL) AND ((T1.taskId is null and T1.process_ins_id is null) or (T1.taskId is not null and T1.process_ins_id is not null))
+  <include refid="projectQuality_default_query_condition" />
+</select>
+
+<select id="queryToEntryProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+  SELECT * 
+    FROM (SELECT BT.*,
+                 T2.TODO_TASK_ID taskId,
+                 NVL(T2.MAIN_PROCESS_ID, #{processId}) AS processId,
+                 T2.CUR_NODE_ID as nodeId,
+                 T2.CUR_NODE_NAME as nodeName,
+                 T2.BACK_FLAG as backFlag,
+                 T2.READ_FLAG as readFlag,
+                 T2.NOTE as opinion,
+                 T2.VERSION as version
+           FROM DM_PM_PROJECT_QUALITY BT LEFT JOIN
+                (select * from ${transTableName} T3 where T3.TRANS_ACTOR_ID = #{transActor}) T2
+           ON BT.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+           WHERE (BT.FLOW_STATE = 0 OR BT.FLOW_STATE IS NULL)) T1
+   WHERE (T1.processId = #{processId} OR T1.processId IS NULL) AND ((T1.taskId is null and T1.process_ins_id is null) or (T1.taskId is not null and T1.process_ins_id is not null))
+  <include refid="projectQuality_default_query_condition" />
+  <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<select id="queryEntryProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+ SELECT COUNT(1) 
+    FROM DM_PM_PROJECT_QUALITY T1, (SELECT T1.* FROM ${transTableName} T1,
+                             (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                     T.MAIN_PROCESS_ID,
+                                     T.VERSION,
+                                     T.MAIN_PROCESS_INS_ID,
+                                     T.TRANS_ACTOR_ID
+                                  FROM ${transTableName} T
+                                 WHERE (T.STATUS = 1 OR T.STATUS = 5)
+                                   AND T.MAIN_PROCESS_ID = #{processId}
+                                   AND T.CUR_NODE_ID = #{nodeId}
+                                   AND T.TRANS_ACTOR_ID = #{transActor}
+                                 GROUP BY T.MAIN_PROCESS_ID,
+                                          T.VERSION,
+                                          T.MAIN_PROCESS_INS_ID,
+                                          T.TRANS_ACTOR_ID) TEMPTAB
+             WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+               AND T1.VERSION = TEMPTAB.VERSION
+               AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+               AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+               AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME)  T2 
+   WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID 
+  <include refid="projectQuality_default_query_condition" />
+</select>
+
+<select id="queryEntryProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+ SELECT T1.*, 
+  		 T2.DONE_TASK_ID AS taskId,
+         T2.REVOKE_BACK_FLAG as revokeBackFlag,
+         T2.CUR_NODE_ID as nodeId,
+         T2.CUR_NODE_NAME as nodeName,
+         T2.BACK_FLAG as backFlag,
+         T2.READ_FLAG as readFlag,
+         T2.MAIN_PROCESS_ID as processId,
+         T2.NOTE as opinion,
+         T2.VERSION as version
+    FROM DM_PM_PROJECT_QUALITY T1, (SELECT T1.* FROM ${transTableName} T1,
+                             (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                     T.MAIN_PROCESS_ID,
+                                     T.VERSION,
+                                     T.MAIN_PROCESS_INS_ID,
+                                     T.TRANS_ACTOR_ID
+                                  FROM ${transTableName} T
+                                 WHERE (T.STATUS = 1 OR T.STATUS = 5)
+                                   AND T.MAIN_PROCESS_ID = #{processId}
+                                   AND T.CUR_NODE_ID = #{nodeId}
+                                   AND T.TRANS_ACTOR_ID = #{transActor}
+                                   GROUP BY T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID) TEMPTAB
+              WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                AND T1.VERSION = TEMPTAB.VERSION
+                AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME) T2 
+   WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID 
+  <include refid="projectQuality_default_query_condition" />
+  <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>	  
+</select>
+
+<select id="queryApprovedProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+SELECT COUNT(1)
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 1
+	<include refid="projectQuality_default_query_condition" />
+</select>
+
+<select id="queryApprovedProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 1
+	<include refid="projectQuality_default_query_condition" />
+	<if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<select id="queryApprovalCompletedProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 2
+	<include refid="projectQuality_default_query_condition" />
+	<if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<select id="queryApprovalCompletedProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+SELECT COUNT(1)
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 2
+	<include refid="projectQuality_default_query_condition" />
+</select>
+
+<select id="queryTodoProjectQualityByTaskId" parameterType="String" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+		  T2.TODO_TASK_ID AS taskId ,
+       T2.CUR_NODE_ID as nodeId,
+       T2.CUR_NODE_NAME as nodeName,
+       T2.BACK_FLAG as backFlag,
+       T2.READ_FLAG as readFlag,
+       T2.MAIN_PROCESS_ID as processId,
+       T2.NOTE as opinion,
+       T2.VERSION as version
+  FROM DM_PM_PROJECT_QUALITY T1 RIGHT JOIN (select * from ${transTableName} T3 where T3.todo_task_id = #{taskId} ) T2
+ ON T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+ ORDER BY T2.create_time DESC  
+</select>
+
+<select id="queryDoneProjectQualityByTaskId" parameterType="String" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*, 
+	T2.DONE_TASK_ID AS taskId,
+   T2.REVOKE_BACK_FLAG as revokeBackFlag,
+   T2.CUR_NODE_ID as nodeId,
+   T2.CUR_NODE_NAME as nodeName,
+   T2.BACK_FLAG as backFlag,
+   T2.READ_FLAG as readFlag,
+   T2.MAIN_PROCESS_ID as processId,
+   T2.NOTE as opinion,
+ 	T2.VERSION as version
+FROM DM_PM_PROJECT_QUALITY T1 RIGHT JOIN (select * from ${transTableName} T3 where T3.done_task_id = #{taskId}) T2
+ON T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+ORDER BY T2.create_time DESC  
+</select>
+
+<select id="queryComprehensiveProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+select * from (select *
+ from DM_PM_PROJECT_QUALITY T5,
+      (select distinct t2.cur_process_id as processId,
+                       t2.main_process_ins_id 
+         from ${ruNodeTrackTableName} t2
+        where t2.node_track_id in
+              (select t3.node_track_id
+                 from ${ruTransTrackTableName} t3
+                where t3.actor_id = #{transActor})
+          and t2.cur_process_id = #{processId}) c
+where T5.process_ins_id = c.main_process_ins_id 
+union 
+select T4.*, null as processId, null as main_process_ins_id 
+from DM_PM_PROJECT_QUALITY T4 
+where T4.process_ins_id is null ) T1
+<where>
+<include refid="projectQuality_default_query_condition" />
+</where>
+	<if test="sortFields != null and sortFields.size > 0 ">
+		  ORDER BY 
+		<foreach item="sortField" collection="sortFields" separator=",">
+       T1.${sortField.sortName} ${sortField.sortType} 
+		</foreach>
+	</if>
+</select>
+
+<select id="queryComprehensiveProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+select count(1) from (select *
+  from DM_PM_PROJECT_QUALITY T5,
+       (select distinct t2.cur_process_id as processId,
+                        t2.main_process_ins_id 
+          from ${ruNodeTrackTableName} t2
+         where t2.node_track_id in
+               (select t3.node_track_id
+                  from ${ruTransTrackTableName} t3
+                 where t3.actor_id = #{transActor})
+           and t2.cur_process_id = #{processId}) c
+ where T5.process_ins_id = c.main_process_ins_id 
+ union 
+ select T4.*, null as processId, null as main_process_ins_id 
+ from DM_PM_PROJECT_QUALITY T4 
+ where T4.process_ins_id is null ) T1 
+ <where>
+ <include refid="projectQuality_default_query_condition" />
+ </where>
+</select>
+
+<select id="loadTodoProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+  SELECT T1.*,
+		  T2.TODO_TASK_ID AS taskId ,
+          T2.CUR_NODE_ID as nodeId,
+          T2.CUR_NODE_NAME as nodeName,
+          T2.BACK_FLAG as backFlag,
+          T2.READ_FLAG as readFlag,
+          T2.MAIN_PROCESS_ID as processId,
+          T2.NOTE as opinion,
+          T2.VERSION as version
+     FROM DM_PM_PROJECT_QUALITY T1, ${transTableName} T2
+    WHERE T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+      AND T1.FLOW_STATE = 1
+      AND T2.TRANS_ACTOR_ID = #{transActor}
+      AND T2.MAIN_PROCESS_ID = #{processId}     
+     <if test="nodeId != null and nodeId != ''">
+       AND T2.CUR_NODE_ID = #{nodeId}	
+     </if> 
+    AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadDoneProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+	<if test="nodeId != null and nodeId != ''">
+     AND T2.CUR_NODE_ID = #{nodeId}	
+    </if>  
+    AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadToEntryProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT * 
+    FROM (SELECT BT.*,
+                 T2.TODO_TASK_ID taskId,
+                 NVL(T2.MAIN_PROCESS_ID, #{processId}) AS processId,
+                 T2.CUR_NODE_ID as nodeId,
+                 T2.CUR_NODE_NAME as nodeName,
+                 T2.BACK_FLAG as backFlag,
+                 T2.READ_FLAG as readFlag,
+                 T2.NOTE as opinion,
+                 T2.VERSION as version
+           FROM DM_PM_PROJECT_QUALITY BT LEFT JOIN
+                (select * from ${transTableName} T3 where T3.TRANS_ACTOR_ID = #{transActor}) T2
+           ON BT.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+           WHERE (BT.FLOW_STATE = 0 OR BT.FLOW_STATE IS NULL)) T1
+   WHERE (T1.processId = #{processId} OR T1.processId IS NULL)
+   AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadEntryProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*, 
+  		 T2.DONE_TASK_ID AS taskId,
+         T2.REVOKE_BACK_FLAG as revokeBackFlag,
+         T2.CUR_NODE_ID as nodeId,
+         T2.CUR_NODE_NAME as nodeName,
+         T2.BACK_FLAG as backFlag,
+         T2.READ_FLAG as readFlag,
+         T2.MAIN_PROCESS_ID as processId,
+         T2.NOTE as opinion,
+         T2.VERSION as version
+    FROM DM_PM_PROJECT_QUALITY T1, (SELECT T1.* FROM ${transTableName} T1,
+                             (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                     T.MAIN_PROCESS_ID,
+                                     T.VERSION,
+                                     T.MAIN_PROCESS_INS_ID,
+                                     T.TRANS_ACTOR_ID
+                                  FROM ${transTableName} T
+                                 WHERE (T.STATUS = 1 OR T.STATUS = 5)
+                                   AND T.MAIN_PROCESS_ID = #{processId}
+                                   AND T.CUR_NODE_ID = #{nodeId}
+                                   AND T.TRANS_ACTOR_ID = #{transActor}
+                                   GROUP BY T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID) TEMPTAB
+              WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                AND T1.VERSION = TEMPTAB.VERSION
+                AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME) T2 
+   WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID 
+   AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadComprehensiveProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+ SELECT * FROM (SELECT *
+  FROM DM_PM_PROJECT_QUALITY T5,
+       (SELECT DISTINCT T2.CUR_PROCESS_ID AS processId,
+                        T2.MAIN_PROCESS_INS_ID 
+          FROM ${ruNodeTrackTableName} T2
+         WHERE T2.NODE_TRACK_ID IN
+               (SELECT T3.NODE_TRACK_ID
+                  FROM ${ruTransTrackTableName} T3
+                 WHERE T3.ACTOR_ID = #{transActor})
+           AND T2.CUR_PROCESS_ID = #{processId}) C
+ WHERE T5.PROCESS_INS_ID = C.MAIN_PROCESS_INS_ID 
+ UNION 
+ SELECT T4.*, NULL AS processId, NULL AS MAIN_PROCESS_INS_ID 
+ FROM T_TEST_FLOW T4 
+ WHERE T4.PROCESS_INS_ID IS NULL ) T1
+ WHERE T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadApprovedProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 1
+    AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="loadApprovalCompletedProjectQuality" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+SELECT T1.*,
+    	   T2.DONE_TASK_ID AS taskId,
+           T2.REVOKE_BACK_FLAG as revokeBackFlag,
+           T2.CUR_NODE_ID as nodeId,
+           T2.CUR_NODE_NAME as nodeName,
+           T2.BACK_FLAG as backFlag,
+           T2.READ_FLAG as readFlag,
+           T2.MAIN_PROCESS_ID as processId,
+           T2.NOTE as opinion,
+ 	       T2.VERSION as version
+	  FROM DM_PM_PROJECT_QUALITY T1,  (SELECT T1.* FROM ${transTableName} T1,
+                                           (SELECT MAX(T.CREATE_TIME) AS MAXCREATETIME,
+                                            T.MAIN_PROCESS_ID,
+                                            T.VERSION,
+                                            T.MAIN_PROCESS_INS_ID,
+                                            T.TRANS_ACTOR_ID
+                                            FROM ${transTableName} T
+                                            WHERE (T.STATUS = 1 OR T.STATUS = 5 OR T.STATUS = 4 OR T.STATUS = 7)
+                                            AND T.MAIN_PROCESS_ID = #{processId}
+                                            AND T.TRANS_ACTOR_ID = #{transActor}
+                                           GROUP BY T.MAIN_PROCESS_ID,
+                                                     T.VERSION,
+                                                     T.MAIN_PROCESS_INS_ID,
+                                                     T.TRANS_ACTOR_ID) TEMPTAB
+                  WHERE T1.MAIN_PROCESS_ID = TEMPTAB.MAIN_PROCESS_ID
+                    AND T1.VERSION = TEMPTAB.VERSION
+                    AND T1.MAIN_PROCESS_INS_ID = TEMPTAB.MAIN_PROCESS_INS_ID
+                    AND T1.TRANS_ACTOR_ID = TEMPTAB.TRANS_ACTOR_ID
+                    AND T1.CREATE_TIME = TEMPTAB.MAXCREATETIME
+                 <if test="firstNodeIds != null and firstNodeIds.size>0 ">
+                    AND T1.CUR_NODE_ID NOT IN 
+                 <foreach item="item" index="index" collection="firstNodeIds" open="(" separator="," close=")">
+                 	#{item}
+                 </foreach>
+                 </if>
+                 ) T2
+	 WHERE T2.MAIN_PROCESS_INS_ID = T1.PROCESS_INS_ID
+    AND T1.FLOW_STATE = 2
+    AND T1.${primaryName} = #{primaryValue}
+</select>
+
+<select id="queryProjectQualityListByCondition" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+   SELECT T1.* FROM DM_PM_PROJECT_QUALITY T1
+   <where> 
+       <include refid="projectQuality_cascade_query_condition" />
+   </where>
+   <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<update id="updateProjectQualityNotEmptyColumn" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+   UPDATE DM_PM_PROJECT_QUALITY T1
+   <trim prefix="set" suffixOverrides=",">
+   	  <include refid="projectQuality_update_filed_condition" />
+   </trim>
+   WHERE T1.${primaryName} = #{primaryValue}
+</update>
+
+<select id="queryProjectQualityList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+   SELECT T1.* FROM DM_PM_PROJECT_QUALITY T1
+   <where> 
+      <include refid="projectQuality_default_query_condition" />
+   </where>
+   <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<select id="queryProjectQualityCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int" >
+   SELECT COUNT(1) FROM DM_PM_PROJECT_QUALITY T1
+   <where> 
+      <include refid="projectQuality_default_query_condition" />
+   </where>
+</select>
+
+<select id="queryProjectQualityListNoPaging" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" >
+   SELECT T1.* FROM DM_PM_PROJECT_QUALITY T1
+   <where> 
+       <include refid="projectQuality_default_query_condition" />
+   </where>   
+   <if test="sortFields != null and sortFields.size > 0 ">
+       ORDER BY 
+      <foreach item="sortField" collection="sortFields" separator=",">
+       	T1.${sortField.sortName} ${sortField.sortType} 
+      </foreach>
+   </if>
+</select>
+
+<select id="projectQuality_queryToDoList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    select 
+t1.* 
+from (
+SELECT
+	PQ.*, 
+    P .ID AS projectId,
+	P .PROJECT_NAME AS projectName,
+	P .PROJECT_CODE AS projectCode,
+	P .PROJECT_DEPT AS projectDept,
+	P .PROJECT_TYPE_CODE AS projectTypeCode,
+	P .PROJECT_TYPE AS projectType,
+	P .PROJECT_CHARGER AS pmName
+FROM
+	DM_PM_PROJECT_QUALITY PQ
+LEFT JOIN 
+    DM_PM_PROJECT P 
+    ON 
+    PQ.PROJECT_ID = P . ID
+WHERE
+	(
+		PQ.PM_ID = #{loginUserId}
+		AND PQ.QUALITY_STATUS = 1
+	)
+OR (
+	PQ.PROJECT_QUALITY_ID = #{loginUserId}
+	AND PQ.QUALITY_STATUS = 2
+)
+)t1
+where 
+1=1
+<if test = "qualityStatus != null"> 
+     and (t1.QUALITY_STATUS = #{qualityStatus})
+</if>
+<if test = "queryName != null and queryName != '' "> 
+	AND (T1.projectName LIKE '%' || #{queryName} || '%' or T1.projectCode LIKE '%' || #{queryName} || '%')  
+</if>
+</select>
+    
+<select id="projectQuality_queryDutyAndSource" parameterType="String" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    SELECT P.PROJECT_NAME as projectName,P.PROJECT_CODE as projectCode,P.PROJECT_DEPT as projectDept,P.PROJECT_TYPE_CODE as projectTypeCode,
+	   P.PROJECT_TYPE as projectType,P.PROJECT_CHARGER as pmName,P.BUSINESS_SEGMENTS as issuedType,
+			 PQ.*
+ FROM DM_PM_PROJECT_QUALITY PQ RIGHT JOIN DM_PM_PROJECT P ON PQ.PROJECT_ID = P.ID WHERE PQ.PROJECT_ID = #{projectId}
+</select>
+    
+    
+<select id="projectQuality_queryQualityActiveList" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    select t1.id,
+t1.project_id as projectId,
+t2.project_name as  projectName,
+t2.PROJECT_CODE as projectCode,
+t1.ISSUED_TYPE as issuedType,
+t2.PROJECT_TYPE as projectType ,
+t2.PROJECT_DEPT as projectDept,
+t2.PROJECT_CHARGER as pmName,
+t1.QUALITY_STATUS as qualityStatus
+from DM_PM_PROJECT_QUALITY t1 left join DM_PM_PROJECT t2 on t1.PROJECT_ID = t2.ID
+WHERE t1.PROJECT_QUALITY_ID = #{loginUserId}
+and t1.quality_status in (3,4) 
+and t1.is_deleted = 2
+and t2.is_deleted = 2
+and t2.phase_status != 1003
+and not exists (
+    select 1 from DM_PM_PROJECT_TERMINATION t3 where t3.project_id = t1.PROJECT_ID and t3.flow_state = 2 and t3.is_deleted = 2
+)
+<if test = "issuedType != null ">
+and t1.ISSUED_TYPE = #{issuedType}
+</if>
+<if test = "projectName != null and projectName != ''">
+and t2.project_name like  '%' || #{projectName} || '%'
+</if>
+<if test = "projectTypeCode != null and projectTypeCode != '' ">
+and t2.PROJECT_TYPE_CODE = #{projectTypeCode}
+</if>
+<if test = "projectType != null and projectType != '' ">
+and t2.PROJECT_TYPE = #{projectType}
+</if>
+
+    order by t1.CREATE_TIME desc
+</select>
+    
+<select id="projectQuality_queryDutySourceActive" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    select t1.id,
+t1.project_id as projectId,
+t2.project_name as  projectName,
+t2.PROJECT_CODE as projectCode,
+t2.PROJECT_DEPT as projectDept,
+t2.PROJECT_TYPE_CODE as projectTypeCode,
+t2.PROJECT_TYPE as projectType ,
+t2.PROJECT_CHARGER as pmName,
+t1.PM_ARRIVAL_TIME,
+t1.DM_NAME,
+t1.DM_ARRIVAL_TIME,
+t1.QA_NAME,
+t1.QA_ARRIVAL_TIME,
+t1.PROJECT_QUALITY_NAME,
+t1.PROJECT_QUALITY_ARRIVAL_TIME,
+t1.issued_type,
+decode(t1.issued_type,1,'经营项目',2,'自筹项目',3,'前期费项目') as issuedTypeStr
+from DM_PM_PROJECT_QUALITY t1 left join DM_PM_PROJECT t2 on t1.PROJECT_ID = t2.ID
+WHERE  t1.id = #{id}
+</select>
+    
+    
+    
+<update id="projectQuality_updateQualityStatus" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    update DM_PM_PROJECT_QUALITY t1 
+set t1.QUALITY_STATUS = #{qualityStatus}
+where t1.id = #{id}
+</update> 
+    
+<update id="projectQuality_updateQualityLists" parameterType="java.util.List">
+    BEGIN
+<foreach collection="list" item="item" >
+update DM_PM_PROJECT_QUALITY t1 
+set t1.QUALITY_STATUS = 4
+where t1.id = #{item.id};
+</foreach>
+END;
+</update> 
+    
+    
+    
+<select id="projectQuality_queryTodoTaskByTransActorId" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    SELECT T2.CUR_NODE_ID   as nodeId,
+       MAX(T2.CUR_NODE_NAME) as nodeName,
+       MAX(T2.VERSION)       as version
+FROM DM_PM_PROJECT_QUALITY T1, BPMS_RU_TODO_TASK T2
+WHERE T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+  AND (T1.FLOW_STATE = 1 or T1.FLOW_STATE = 0)
+  AND T2.TRANS_ACTOR_ID = #{transActor}
+  AND T2.MAIN_PROCESS_ID = #{processId}
+GROUP BY T2.CUR_NODE_ID
+ORDER BY NODEID
+</select>
+    
+    
+<select id="projectQuality_queryVoById" parameterType="String" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    SELECT T1.*,
+       T2.TODO_TASK_ID AS taskId ,
+       T2.CUR_NODE_ID as nodeId,
+       T2.CUR_NODE_NAME as nodeName,
+       T2.BACK_FLAG as backFlag,
+       T2.READ_FLAG as readFlag,
+       T2.MAIN_PROCESS_ID as processId,
+       T2.NOTE as opinion,
+       T2.VERSION as version,
+       T3.PROJECT_NAME as projectName,
+       T3.PROJECT_CODE as projectCode,
+       T3.PROJECT_DEPT as projectDept,
+       T3.PROJECT_TYPE_CODE as projectTypeCode,
+       T3.PROJECT_TYPE as projectType,
+       T3.PROJECT_CHARGER AS pmName
+FROM DM_PM_PROJECT_QUALITY T1
+    INNER JOIN DM_PM_PROJECT T3 on T1.PROJECT_ID = T3.ID
+    LEFT JOIN BPMS_RU_TODO_TASK T2 on T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+WHERE
+   T1.ID = #{id}
+</select>
+    
+    
+    
+    
+<select id="projectQuality_queryDoneTaskByTransActorId" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    SELECT T1.CUR_NODE_ID AS nodeId,
+       T1.CUR_NODE_NAME AS nodeName,
+       T1.VERSION AS VERSION
+FROM (SELECT T2.CUR_NODE_ID, MAX(T2.CUR_NODE_NAME) AS CUR_NODE_NAME, MAX(T2.VERSION) AS VERSION
+      FROM DM_PM_PROJECT_QUALITY T1, ${transTableName} T2
+      WHERE T1.PROCESS_INS_ID = T2.MAIN_PROCESS_INS_ID
+        AND (T1.FLOW_STATE = 1 OR T1.FLOW_STATE = 2 OR T1.FLOW_STATE = 3)
+        AND T2.STATUS = 1
+        AND T2.TRANS_ACTOR_ID = #{transActor} 
+        AND T2.MAIN_PROCESS_ID = #{processId}
+      GROUP BY T2.CUR_NODE_ID) T1
+ORDER BY NODEID DESC
+</select>
+    
+<select id="projectQuality_queryVOByProjectId" parameterType="String" resultType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO">
+    select t1.id,
+       t1.project_id as projectId,
+       t2.project_name as  projectName,
+       t2.PROJECT_CODE as projectCode,
+       t2.PROJECT_DEPT as projectDept,
+       t2.PROJECT_TYPE_CODE as projectTypeCode,
+       t2.PROJECT_TYPE as projectType ,
+       t2.PROJECT_CHARGER as pmName,
+       t1.PM_ARRIVAL_TIME,
+       t1.DM_NAME,
+       t1.DM_ARRIVAL_TIME,
+       t1.QA_NAME,
+       t1.QA_ARRIVAL_TIME,
+       t1.PROJECT_QUALITY_NAME,
+       t1.PROJECT_QUALITY_ARRIVAL_TIME,
+       t1.issued_type,
+       decode(t1.issued_type,1,'经营项目',2,'自筹项目',3,'前期费项目') as issuedTypeStr
+from DM_PM_PROJECT_QUALITY t1 left join DM_PM_PROJECT t2 on t1.PROJECT_ID = t2.ID
+WHERE  t1.PROJECT_ID = #{projectId}
+</select>
+    
+<select id="projectQuality_queryToDoListCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int">
+    SELECT COUNT(1) FROM (select 
+t1.* 
+from (
+SELECT
+	PQ.*, 
+    P .ID AS projectId,
+	P .PROJECT_NAME AS projectName,
+	P .PROJECT_CODE AS projectCode,
+	P .PROJECT_DEPT AS projectDept,
+	P .PROJECT_TYPE_CODE AS projectTypeCode,
+	P .PROJECT_TYPE AS projectType,
+	P .PROJECT_CHARGER AS pmName
+FROM
+	DM_PM_PROJECT_QUALITY PQ
+LEFT JOIN 
+    DM_PM_PROJECT P 
+    ON 
+    PQ.PROJECT_ID = P . ID
+WHERE
+	(
+		PQ.PM_ID = #{loginUserId}
+		AND PQ.QUALITY_STATUS = 1
+	)
+OR (
+	PQ.PROJECT_QUALITY_ID = #{loginUserId}
+	AND PQ.QUALITY_STATUS = 2
+)
+)t1
+where 
+1=1
+<if test = "qualityStatus != null"> 
+     and (t1.QUALITY_STATUS = #{qualityStatus})
+</if>
+<if test = "queryName != null and queryName != '' "> 
+	AND (T1.projectName LIKE '%' || #{queryName} || '%' or T1.projectCode LIKE '%' || #{queryName} || '%')  
+</if>) t
+</select>
+    
+    
+<select id="projectQuality_queryQualityActiveListCount" parameterType="com.csg.bgdoms.project.projectmanage.projectqualityplan.model.ProjectQualityVO" resultType="int">
+    SELECT COUNT(1) FROM (select t1.id,
+t1.project_id as projectId,
+t2.project_name as  projectName,
+t2.PROJECT_CODE as projectCode,
+t1.ISSUED_TYPE as issuedType,
+t2.PROJECT_TYPE as projectType ,
+t2.PROJECT_DEPT as projectDept,
+t2.PROJECT_CHARGER as pmName,
+t1.QUALITY_STATUS as qualityStatus
+from DM_PM_PROJECT_QUALITY t1 left join DM_PM_PROJECT t2 on t1.PROJECT_ID = t2.ID
+WHERE t1.PROJECT_QUALITY_ID = #{loginUserId}
+and t1.quality_status in (3,4) 
+and t1.is_deleted = 2
+and t2.is_deleted = 2
+and t2.phase_status != 1003
+and not exists (
+    select 1 from DM_PM_PROJECT_TERMINATION t3 where t3.project_id = t1.PROJECT_ID and t3.flow_state = 2 and t3.is_deleted = 2
+)
+<if test = "issuedType != null ">
+and t1.ISSUED_TYPE = #{issuedType}
+</if>
+<if test = "projectName != null and projectName != ''">
+and t2.project_name like  '%' || #{projectName} || '%'
+</if>
+<if test = "projectTypeCode != null and projectTypeCode != '' ">
+and t2.PROJECT_TYPE_CODE = #{projectTypeCode}
+</if>
+<if test = "projectType != null and projectType != '' ">
+and t2.PROJECT_TYPE = #{projectType}
+</if>
+) t
+</select>
+    
+    
+</mapper>
